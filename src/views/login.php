@@ -12,10 +12,10 @@
         <div>
             <form action="/login" method="post">
 
-                <h1>Consulta les teves multes</h1>
+                <h1>Validació al portal Udemy</h1>
 
-                <label for="matricula">Matricula:</label>
-                <input type="text" id="matricula" name="matricula"required>
+                <label for="email">User:</label>
+                <input type="text" id="email" name="email"required>
 
                 <label for="pass">Password:</label>
                 <input type="password" id="pass" name="pass"required>
@@ -23,10 +23,6 @@
                 <input type="submit" value="Validar" >
 
             </form>
-        </div>
-        <div>
-            <a href="/registre"><p>Registra't per consultar les teves multes</p></a>
-            <a href=""><p>Soc administrador</p></a>
         </div>
     </div>
 </body>

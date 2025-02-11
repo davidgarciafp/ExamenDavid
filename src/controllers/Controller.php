@@ -1,35 +1,28 @@
 <?php
-/*
-$log = fopen("logPhp.txt", 'a');
-        fwrite($log, $found);
-        fclose($log);
-*/
+
+
 class Controller {
-    protected $user;
+    protected $usuarios;
+    protected $curso;
 
     public function __construct()
     {
-        session_start();
-        $this->user = new Usuario();
+        // Inicia la sesión
+        $this->usuarios = new Usuario();
+        //$this->admin = new Admin();
+        $this->curso = new Cursos();
     }
 
+    // Verifica si la sesión está activa
     protected function checkSession()
     {
-        if (!isset($_SESSION['matricula'])) {
-            $this->render("login", ["error" => "La sessió no s'ha iniciat"]);
-            exit;
+        if (!isset($_SESSION['email']) and !isset($_SESSION['user'])) {
+            header('Location: /');
+            exit; // Importante para detener la ejecución tras redirigir
         }
     }
 
-    // protected function checkRole(array $allowedRoles)
-    // {
-    //     $this->checkSession();
-    //     if (!in_array($_SESSION['rol'], $allowedRoles)) {
-    //         header('Location: /registers');
-    //         exit;
-    //     }
-    // }
-
+    // Renderiza la vista solicitada
     protected function render($view, $data = [])
     {
         extract($data);
@@ -41,3 +34,5 @@ class Controller {
         }
     }
 }
+
+?>

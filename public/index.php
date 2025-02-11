@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 
 require_once __DIR__.'/../Autoload.php';
 
@@ -12,14 +13,12 @@ $router->post('/login', 'UsuarioController@login');
 
 $router->get('/logout', 'UsuarioController@logout');
 
-$router->get('/multas', 'MultasController@index');
+$router->get('/cursos', 'CursosController@index');
 
-$router->get ('/word', "MultasController@word");
+$router->get('/word', "CursosController@word");
 
-$router->get ('/registre', "PrincipalController@registre");
+$router->get('/matricula', "CursosController@pantallaMatricula");
 
-$router->post('/registre/create', "PrincipalController@createRegistre");
-
-$router->post('/pagament',"MultasController@pagament");
+$router->post('/addMatricula',"CursosController@matricula");
 
 $router->dispatch();

@@ -2,11 +2,11 @@
 
     class Usuario extends Database
     {
-        function comprovarUsuario($matricula,$pass) {
+        function comprovarUsuario($email,$pass) {
             
-            $sql = $this -> db->prepare('SELECT * FROM coche WHERE matricula = :matricula AND pass = :pass');
+            $sql = $this -> db->prepare('SELECT * FROM usuarios WHERE email = :email AND pass = :pass');
 
-            $sql->bindParam(':matricula', $matricula);
+            $sql->bindParam(':email', $email);
             $sql->bindParam(':pass', $pass);
 
             $sql->execute();

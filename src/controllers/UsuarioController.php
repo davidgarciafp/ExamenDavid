@@ -7,15 +7,15 @@ class UsuarioController extends Controller {
     }
 
     public function login() {
-        $_SESSION['matricula'] = $_POST["matricula"];
+        $_SESSION['email'] = $_POST["email"];
         $_SESSION['pass'] = $_POST["pass"];
 
-        if ($this->user->comprovarUsuario($_SESSION['matricula'], $_SESSION['pass'])) {
-            header('Location: /multas');
+        if ($this->usuarios->comprovarUsuario($_SESSION['email'], $_SESSION['pass'])) {
+            header('Location: /cursos');
         } else {
             session_unset();
             session_destroy();
-            $this->render("login", ["error" => "* Matricula o contrasenya incorrecta"]);
+            $this->render("login", ["error" => "* Usuari o contrasenya incorrecta"]);
         }
         exit;
     }
